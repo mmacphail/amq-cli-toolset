@@ -1,0 +1,16 @@
+version: '3'
+services:
+  amq:
+    container_name: amq
+    image: webcenter/activemq:latest
+    environment:
+      - ACTIVEMQ_CONFIG_MINMEMORY=512
+      - ACTIVEMQ_CONFIG_MAXMEMORY=1024
+    ports:
+      - 61616:61616
+      - 8161:8161
+    networks:
+      - dev
+networks:
+  dev:
+    driver: bridge
